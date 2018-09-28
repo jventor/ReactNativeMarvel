@@ -1,0 +1,3 @@
+rootProject.name = 'ReactNativeMarvel'
+
+include ':app'
