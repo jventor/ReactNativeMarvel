@@ -9,8 +9,13 @@
 import React, { Component } from 'react';
 import { Router, Stack, Scene } from 'react-native-router-flux';
 import { Characters } from './sections';
+import * as api from '../api';
 
 export default class App extends Component {
+  componentWillMount() {
+    api.configureAxios();
+  }
+
   render() {
     return (
       <Router>
