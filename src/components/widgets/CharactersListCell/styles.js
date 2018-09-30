@@ -1,23 +1,25 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
+import * as Colors from '../../../commons/colors'
 
 export default StyleSheet.create({
-  cellContainer: {
-    width: '50%',
+  container: {
+    width: '100%',
     height: 300,
-    backgroundColor: 'rgb(24,24,24)',
-    paddingHorizontal: 4,
-    paddingVertical: 2,
-    borderColor: 'grey',
-    borderWidth: 1
+    backgroundColor: Colors.main
   },
-  detailContainer: {
-    flexDirection: 'row',
-    padding: 5
+  labelContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: Colors.labelBackGround
   },
-
   label: {
-    color: 'white',
-    fontSize: 14,
+    paddingHorizontal: 5,
+    paddingVertical: 5,
+
+    color: Colors.mainDark,
+    fontSize: 24,
     fontWeight: 'bold'
   },
   image: {
@@ -25,4 +27,4 @@ export default StyleSheet.create({
     height: '100%',
     resizeMode: 'cover'
   }
-});
+})

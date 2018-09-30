@@ -1,3 +1,4 @@
-import CharactersList from './CharactersList';
+import CharactersList from './CharactersList'
+import CharacterDetail from './CharacterDetail'
 
-export { CharactersList };
+export { CharactersList, CharacterDetail }

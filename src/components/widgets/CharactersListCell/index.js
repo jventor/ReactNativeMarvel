@@ -1,2 +1,2 @@
-import component from './view.js';
-export default component;
+import component from './view.js'
+export default component
