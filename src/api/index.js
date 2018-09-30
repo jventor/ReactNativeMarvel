@@ -5,6 +5,7 @@ const AUTH_PATH = `?apikey=${API_KEY}&hash=${HASH}&ts=${TIMESTAMP}`;
 
 export function configureAxios() {
   axios.defaults.baseURL = BASE_URL;
+  axios.defaults.headers.common['Referer'] = 'http://dccomics.com';
 }
 
 export function fetchCharacters() {
