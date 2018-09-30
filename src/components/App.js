@@ -8,7 +8,7 @@
 
 import React, { Component } from 'react';
 import { Router, Stack, Scene } from 'react-native-router-flux';
-import { Characters } from './sections';
+import { CharactersList } from './sections';
 import * as api from '../api';
 
 export default class App extends Component {
@@ -20,7 +20,12 @@ export default class App extends Component {
     return (
       <Router>
         <Stack key={'root'}>
-          <Scene key={'characters'} initial={'true'} component={Characters} title={'Characters'} />
+          <Scene
+            key={'characters'}
+            initial={'true'}
+            component={CharactersList}
+            title={'Characters'}
+          />
         </Stack>
       </Router>
     );

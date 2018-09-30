@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, Alert, FlatList, Image } from 'react-native';
 import styles from './styles.js';
 import * as api from '../../../api';
-import CharactersListCell from '../../widgets/CharactersListCell/view';
+import CharactersListCell from '../../widgets/CharactersListCell';
 
-export default class Characters extends React.Component {
+export default class CharactersList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,7 +16,7 @@ export default class Characters extends React.Component {
     api
       .fetchCharacters()
       .then(res => this.setState({ list: res.data.data.results }))
-      .catch(err => console.log('Error (Characters: componentDidMount: ', err));
+      .catch(err => console.log('Error (CharactersList: componentDidMount: ', err));
   }
 
   _renderItem({ item }) {
