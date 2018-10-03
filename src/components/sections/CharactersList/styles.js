@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native'
 import * as Colors from '../../../commons/colors'
-import React from 'react'
 
 export default StyleSheet.create({
   container: {
@@ -22,5 +21,21 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 5
+  },
+  listEmpty: {
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  labelContainer: {
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.main
+  },
+  labelText: {
+    fontSize: 16,
+    color: 'white',
+    fontWeight: 'bold'
   }
 })

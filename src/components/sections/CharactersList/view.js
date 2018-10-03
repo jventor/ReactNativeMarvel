@@ -1,35 +1,16 @@
 import React from 'react'
-import { View, FlatList, ActivityIndicator, Image } from 'react-native'
+import { View, FlatList, ActivityIndicator, Image, Text } from 'react-native'
 import styles from './styles.js'
-import * as api from '../../../api'
 import CharactersListCell from '../../widgets/CharactersListCell'
 import { Actions } from 'react-native-router-flux'
 
 export default class CharactersList extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      list: [],
-      page: 0,
-      isLoading: false
-    }
-  }
-
   componentDidMount() {
     this._fetchCharacters()
   }
 
   _fetchCharacters() {
-    this.setState({ isLoading: true })
-    api
-      .fetchCharacters(this.state.page)
-      .then(res =>
-        this.setState({
-          isLoadind: false,
-          list: [...this.state.list, ...res.data.data.results]
-        })
-      )
-      .catch(err => console.log('Error (CharactersList: componentDidMount: ', err))
+    this.props.fetchCharacterList()
   }
 
   _renderItem({ item }) {
@@ -41,48 +22,85 @@ export default class CharactersList extends React.Component {
   }
 
   _handleLoadMore = () => {
-    this.setState(
-      {
-        page: this.state.page + 1
-      },
-      () => {
-        this._fetchCharacters()
-      }
-    )
+    console.log('load more')
+    this.props.onLoadMoreCharacters(this.props.page + 1)
+    this.refs.listRef.scrollToIndex({ animated: true, index: 0, viewPosition: 0.5 })
+  }
+
+  _handleLoadLess = () => {
+    console.log('load less')
+    if (this.props.page > 0) {
+      this.props.onLoadMoreCharacters(this.props.page - 1)
+      this.refs.listRef.scrollToIndex({ animated: true, index: 0, viewPosition: 0.5 })
+    }
+  }
+
+  _renderPushDownMessage = () => {
+    if (this.props.page > 0) {
+      return (
+        <Text style={{ fontSize: 16, color: 'white', fontWeight: 'bold' }}>
+          {'Push down to advance to the next page'}
+        </Text>
+      )
+    }
   }
 
   _renderHeader = () => {
-    return (
-      <View style={styles.listHeader}>
-        <Image style={styles.imageHeader} source={require('../../../resources/logo-marvel.jpeg')} />
-      </View>
-    )
+    if (this.props.totalPages > 0) {
+      return (
+        <View style={styles.listHeader}>
+          <Image style={styles.imageHeader} source={require('../../../resources/logo-marvel.jpeg')} />
+          <View style={styles.labelContainer}>
+            <Text style={styles.labelText}>
+              {this.props.totalPages > 0 ? 'Page: ' + (this.props.page + 1) + ' / ' + this.props.totalPages : ''}
+            </Text>
+            {this._renderPushDownMessage()}
+          </View>
+        </View>
+      )
+    } else
+      return (
+        <View style={styles.listHeader}>
+          <Image style={styles.imageHeader} source={require('../../../resources/logo-marvel.jpeg')} />
+        </View>
+      )
   }
 
   _renderFooter = () => {
-    if (this.state.isLoading === true) {
+    if (this.props.totalPages > 0 && this.props.page < this.props.totalPages) {
       return (
-        <View style={styles.listFooter}>
-          <ActivityIndicator animating={true} size={'large'} />
+        <View style={styles.labelContainer}>
+          <Text style={styles.labelText}>{'Push up to advance to the next page'}</Text>
         </View>
       )
-    } else {
-      return null
     }
+    return null
+  }
+
+  _renderEmpty = () => {
+    return (
+      <View style={styles.listEmpty}>
+        <ActivityIndicator animating={true} size={'large'} />
+      </View>
+    )
   }
 
   render() {
     return (
       <View style={styles.container}>
         <FlatList
+          ref="listRef"
           renderItem={item => this._renderItem(item)}
-          data={this.state.list}
+          data={this.props.list}
           keyExtractor={item => 'cell' + item.id}
           onEndReached={this._handleLoadMore}
-          onEndReachedThreshold={0.5}
+          onRefresh={this._handleLoadLess}
+          onEndReachedThreshold={-0.3}
           ListFooterComponent={this._renderFooter}
           ListHeaderComponent={this._renderHeader}
+          ListEmptyComponent={this._renderEmpty}
           stickyHeaderIndices={[0]}
+          refreshing={false}
         />
       </View>
     )

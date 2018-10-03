@@ -1,8 +1,7 @@
 import axios from 'axios'
-import { API_KEY, HASH, BASE_URL, TIMESTAMP } from 'react-native-dotenv'
+import { API_KEY, HASH, BASE_URL, TIMESTAMP, REG_PER_REQUEST } from 'react-native-dotenv'
 
 const AUTH_PATH = `?apikey=${API_KEY}&hash=${HASH}&ts=${TIMESTAMP}`
-const REG_PER_REQUEST = 20
 
 export function configureAxios() {
   axios.defaults.baseURL = BASE_URL
