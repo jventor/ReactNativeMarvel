@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, FlatList, Text, ActivityIndicator } from 'react-native'
+import { View, FlatList, ActivityIndicator, Image } from 'react-native'
 import styles from './styles.js'
 import * as api from '../../../api'
 import CharactersListCell from '../../widgets/CharactersListCell'
@@ -51,10 +51,18 @@ export default class CharactersList extends React.Component {
     )
   }
 
+  _renderHeader = () => {
+    return (
+      <View style={styles.listHeader}>
+        <Image style={styles.imageHeader} source={require('../../../resources/logo-marvel.jpeg')} />
+      </View>
+    )
+  }
+
   _renderFooter = () => {
     if (this.state.isLoading === true) {
       return (
-        <View>
+        <View style={styles.listFooter}>
           <ActivityIndicator animating={true} size={'large'} />
         </View>
       )
@@ -73,6 +81,8 @@ export default class CharactersList extends React.Component {
           onEndReached={this._handleLoadMore}
           onEndReachedThreshold={0.5}
           ListFooterComponent={this._renderFooter}
+          ListHeaderComponent={this._renderHeader}
+          stickyHeaderIndices={[0]}
         />
       </View>
     )

@@ -1,3 +1,3 @@
 export const mainDark = 'rgb(24,24,24)'
-export const main = 'rgb(80,80,80)'
-export const labelBackGround = 'rgba(255, 255, 255, 0.6)'
+export const main = '#d81621'
+export const labelBackGround = 'rgba(216, 22, 23, 0.6)'

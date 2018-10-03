@@ -12,7 +12,13 @@ export default class App extends Component {
     return (
       <Router>
         <Stack key={'root'}>
-          <Scene key={'charactersList'} initial={'true'} component={CharactersList} title={'Characters List'} />
+          <Scene
+            key={'charactersList'}
+            initial={'true'}
+            component={CharactersList}
+            title={'Characters List'}
+            hideNavBar={true}
+          />
           <Scene key={'characterDetail'} component={CharacterDetail} title={'Character Detail'} />
         </Stack>
       </Router>

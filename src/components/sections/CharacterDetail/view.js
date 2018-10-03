@@ -4,13 +4,6 @@ import styles from './styles.js'
 import { imageUri } from '../../../commons/utils/'
 
 export default class CharacterDetail extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      item: this.props.item
-    }
-  }
-
   render() {
     const character = this.props.item
 

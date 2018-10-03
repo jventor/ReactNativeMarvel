@@ -17,8 +17,7 @@ export default StyleSheet.create({
   label: {
     paddingHorizontal: 5,
     paddingVertical: 5,
-
-    color: Colors.mainDark,
+    color: 'white',
     fontSize: 24,
     fontWeight: 'bold'
   },
