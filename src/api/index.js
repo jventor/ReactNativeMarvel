@@ -1,11 +1,13 @@
 import axios from 'axios'
-import { API_KEY, HASH, BASE_URL, TIMESTAMP, REG_PER_REQUEST } from 'react-native-dotenv'
+import { API_KEY } from 'react-native-dotenv'
+import { BASE_URL, REG_PER_REQUEST } from '../commons/constants'
 
-const AUTH_PATH = `?apikey=${API_KEY}&hash=${HASH}&ts=${TIMESTAMP}`
+const AUTH_PATH = `?apikey=${API_KEY}`
 
 export function configureAxios() {
   axios.defaults.baseURL = BASE_URL
-  axios.defaults.headers.common['Referer'] = 'http://dccomics.com'
+  axios.defaults.headers.post['Content-Type'] = 'application/json'
+  axios.defaults.headers.common['Referer'] = 'developer.marvel.com'
 }
 
 export function fetchCharacters(page = 0) {
