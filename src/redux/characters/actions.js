@@ -1,6 +1,6 @@
 import * as types from './types.js'
 import * as api from '../../api'
-import { REG_PER_REQUEST } from 'react-native-dotenv'
+import { REG_PER_REQUEST } from '../../commons/constants'
 
 export function setFetching(value) {
   return {
@@ -33,6 +33,7 @@ export function setTotalPages(value) {
 export function fetchCharactersList() {
   return (dispatch, getState) => {
     dispatch(setFetching(true))
+    dispatch(setList([]))
     const page = getState().characters.page
     console.log('page: ', page)
     api

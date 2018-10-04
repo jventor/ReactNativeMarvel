@@ -24,6 +24,7 @@ export default StyleSheet.create({
   },
   listEmpty: {
     height: '100%',
+    paddingTop: 50,
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -37,5 +38,19 @@ export default StyleSheet.create({
     fontSize: 16,
     color: 'white',
     fontWeight: 'bold'
+  },
+  paginationContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: Colors.main,
+    paddingHorizontal: 10
+  },
+  imageContainer: {
+    padding: 0,
+    margin: 0,
+    backgroundColor: Colors.main,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })
