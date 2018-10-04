@@ -10,7 +10,7 @@ export default class Button extends React.Component {
   render() {
     const { label } = this.props
     return (
-      <TouchableOpacity onPress={() => this.props.onButtonPress()} style={styles.container}>
+      <TouchableOpacity onPress={() => this.props.onButtonPress()} style={[styles.container, this.props.style]}>
         <Text style={styles.labelText}>{label}</Text>
       </TouchableOpacity>
     )

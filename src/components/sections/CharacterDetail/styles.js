@@ -21,7 +21,8 @@ export default StyleSheet.create({
     backgroundColor: Colors.main,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 5
+    paddingVertical: 5,
+    flexDirection: 'row'
   },
   label: {
     fontSize: 24,
