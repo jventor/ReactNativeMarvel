@@ -8,9 +8,13 @@ export default class Button extends React.Component {
   }
 
   render() {
-    const { label } = this.props
+    const { label, disabled } = this.props
     return (
-      <TouchableOpacity onPress={() => this.props.onButtonPress()} style={[styles.container, this.props.style]}>
+      <TouchableOpacity
+        onPress={() => this.props.onButtonPress()}
+        style={[styles.container, this.props.style]}
+        disabled={disabled}
+      >
         <Text style={styles.labelText}>{label}</Text>
       </TouchableOpacity>
     )

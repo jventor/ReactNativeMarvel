@@ -39,9 +39,9 @@ export function fetchCharactersList() {
     api
       .fetchCharacters(getState().characters.page)
       .then(response => {
-        dispatch(setFetching(false))
         dispatch(setList(response.data.data.results))
         dispatch(setTotalPages(response.data.data.total))
+        dispatch(setFetching(false))
       })
       .catch(error => {
         dispatch(setFetching(false))

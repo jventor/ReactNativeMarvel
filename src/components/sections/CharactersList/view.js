@@ -55,13 +55,18 @@ export default class CharactersList extends React.Component {
           <Image style={styles.imageHeader} source={require('../../../resources/logo-marvel.jpeg')} />
         </View>
         <View style={styles.paginationContainer}>
-          <Button label={'<< Prev'} onButtonPress={this._handleLoadLess} />
+          <Button label={'<< Prev'} onButtonPress={this._handleLoadLess} disabled={this.props.isFetching} />
           <View style={styles.labelContainer}>
             <Text style={styles.labelText}>
               {this.props.totalPages > 0 ? 'Page: ' + (this.props.page + 1) + ' / ' + this.props.totalPages : ''}
             </Text>
           </View>
-          <Button label={'Next >>'} onButtonPress={this._handleLoadMore} style={{ color: 'white' }} />
+          <Button
+            label={'Next >>'}
+            onButtonPress={this._handleLoadMore}
+            style={{ color: 'white' }}
+            disabled={this.props.isFetching}
+          />
         </View>
 
         <FlatList
