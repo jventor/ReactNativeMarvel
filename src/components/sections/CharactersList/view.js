@@ -4,6 +4,18 @@ import styles from './styles.js'
 import CharactersListCell from '../../widgets/CharactersListCell'
 import { Actions } from 'react-native-router-flux'
 import Button from '../../widgets/Button'
+import * as Colors from '../../../commons/colors'
+
+import { FloatingAction } from 'react-native-floating-action'
+
+const actions = [
+  {
+    text: 'Add Characters',
+    icon: require('../../../resources/btnAdd.png'),
+    name: 'add_button',
+    position: 1
+  }
+]
 
 export default class CharactersList extends React.Component {
   componentDidMount() {
@@ -75,6 +87,14 @@ export default class CharactersList extends React.Component {
           data={this.props.list}
           keyExtractor={item => 'cell' + item.id}
           ListEmptyComponent={this._renderEmpty}
+        />
+        <FloatingAction
+          actions={actions}
+          color={Colors.main}
+          overrideWithAction={true}
+          onPressItem={name => {
+            console.log(`selected button: ${name}`)
+          }}
         />
       </View>
     )
