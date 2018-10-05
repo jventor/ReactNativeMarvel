@@ -7,8 +7,10 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import * as reducers from '../redux'
 
-import { CharactersList, CharacterDetail } from './sections'
+import { CharactersList, CharacterDetail, CharacterAdd } from './sections'
 import * as api from '../api'
+
+import styles from './styles.js'
 
 const reducer = combineReducers(reducers)
 
@@ -26,16 +28,17 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
+        <Router navigationBarStyle={styles.navigationBar} titleStyle={styles.navigationTitle}>
           <Stack key={'root'}>
             <Scene
               key={'charactersList'}
-              initial={'true'}
               component={CharactersList}
               title={'Characters List'}
               hideNavBar={true}
+              initial={'true'}
             />
             <Scene key={'characterDetail'} component={CharacterDetail} title={'Character Detail'} />
+            <Scene key={'characterAdd'} component={CharacterAdd} title={'Character Add'} />
           </Stack>
         </Router>
       </Provider>

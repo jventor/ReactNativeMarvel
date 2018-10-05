@@ -94,6 +94,7 @@ export default class CharactersList extends React.Component {
           overrideWithAction={true}
           onPressItem={name => {
             console.log(`selected button: ${name}`)
+            Actions.characterAdd()
           }}
         />
       </View>
