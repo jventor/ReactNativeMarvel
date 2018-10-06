@@ -49,3 +49,9 @@ export function fetchCharactersList() {
       })
   }
 }
+
+export function postCharacter(value) {
+  return (dispatch, getState) => {
+    console.log(`Adding new character: `, value)
+  }
+}

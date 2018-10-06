@@ -50,7 +50,7 @@ export default class CharacterDetail extends React.Component {
         <View style={{ width: '100%', padding: 10, alignItems: 'center', justifyContent: 'center' }}>
           <Button
             style={{ width: '90%', borderRadius: 20 }}
-            label={this.state.imageExpanded ? 'Ocultar Imagen' : 'Mostrar Imagen'}
+            label={this.state.imageExpanded ? 'Hide image' : 'Show image'}
             onButtonPress={() => this._onShowImage()}
           />
         </View>

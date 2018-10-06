@@ -37,7 +37,7 @@ export default class App extends Component {
               hideNavBar={true}
               initial={'true'}
             />
-            <Scene key={'characterDetail'} component={CharacterDetail} title={'Character Detail'} />
+            <Scene key={'characterDetail'} component={CharacterDetail} title={'Character Profile'} />
             <Scene key={'characterAdd'} component={CharacterAdd} title={'Character Add'} />
           </Stack>
         </Router>

@@ -26,6 +26,11 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         totalPages: action.value
       }
+    case types.CHARACTERS_SET_ITEM:
+      return {
+        ...state,
+        item: action.value
+      }
     default:
       return state
   }

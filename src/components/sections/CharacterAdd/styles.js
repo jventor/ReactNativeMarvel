@@ -6,12 +6,6 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: 'black'
   },
-  dataContainer: {
-    flexDirection: 'row'
-  },
-  label: {
-    color: 'white'
-  },
   textInput: {
     borderWidth: 1,
     borderColor: 'white',
@@ -20,12 +14,24 @@ export default StyleSheet.create({
   imageContainer: {
     borderWidth: 1,
     borderColor: Colors.main,
-
-    height: 200,
+    height: 180,
     width: '100%'
   },
   image: {
     width: '100%',
     height: '100%'
+  },
+  textInputContainer: {
+    paddingHorizontal: 20,
+    paddingBottom: 5
+  },
+  imageText: {
+    color: 'white',
+    fontWeight: 'bold',
+    position: 'absolute',
+    top: '46%',
+    textAlign: 'center',
+    left: 0,
+    right: 0
   }
 })
