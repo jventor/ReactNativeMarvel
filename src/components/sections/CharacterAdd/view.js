@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, TouchableOpacity, Alert } from 'react-native'
+import { View, Text, Image, TouchableOpacity, Alert, ScrollView } from 'react-native'
 import styles from './styles.js'
 import TextInput from '../../widgets/TextInput'
 import ImagePicker from 'react-native-image-picker'
@@ -66,58 +66,60 @@ export default class CharacterAdd extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {this._renderImageInput()}
-        <View style={[styles.textInputContainer, { paddingTop: 5 }]}>
-          <TextInput
-            label={'Name: *'}
-            value={this.state.name}
-            onChangeText={name => this.setState({ name })}
-            placeholder={'Name'}
-          />
-        </View>
-        <View style={styles.textInputContainer}>
-          <TextInput
-            label={'Comics: *'}
-            value={this.state.comics}
-            onChangeText={comics => this.setState({ comics })}
-            placeholder={'Number of comics'}
-            keyboardType="numeric"
-          />
-        </View>
-        <View style={styles.textInputContainer}>
-          <TextInput
-            label={'Series: *'}
-            value={this.state.series}
-            onChangeText={series => this.setState({ series })}
-            placeholder={'Number of series'}
-            keyboardType="numeric"
-          />
-        </View>
-        <View style={styles.textInputContainer}>
-          <TextInput
-            label={'Stories: *'}
-            value={this.state.stories}
-            onChangeText={stories => this.setState({ stories })}
-            placeholder={'Number of stories'}
-            keyboardType="numeric"
-          />
-        </View>
-        <View style={styles.textInputContainer}>
-          <TextInput
-            label={'Events: *'}
-            value={this.state.events}
-            onChangeText={events => this.setState({ events })}
-            placeholder={'Number of events'}
-            keyboardType={'decimal-pad'}
-          />
-        </View>
-        <View style={[styles.textInputContainer, { alignItems: 'center', paddingTop: 10 }]}>
-          <Button
-            style={{ width: '90%', borderRadius: 20 }}
-            label={'Save character'}
-            onButtonPress={() => this._onSaveButtonTapped()}
-          />
-        </View>
+        <ScrollView>
+          {this._renderImageInput()}
+          <View style={[styles.textInputContainer, { paddingTop: 5 }]}>
+            <TextInput
+              label={'Name: *'}
+              value={this.state.name}
+              onChangeText={name => this.setState({ name })}
+              placeholder={'Name'}
+            />
+          </View>
+          <View style={styles.textInputContainer}>
+            <TextInput
+              label={'Comics: *'}
+              value={this.state.comics}
+              onChangeText={comics => this.setState({ comics })}
+              placeholder={'Number of comics'}
+              keyboardType="numeric"
+            />
+          </View>
+          <View style={styles.textInputContainer}>
+            <TextInput
+              label={'Series: *'}
+              value={this.state.series}
+              onChangeText={series => this.setState({ series })}
+              placeholder={'Number of series'}
+              keyboardType="numeric"
+            />
+          </View>
+          <View style={styles.textInputContainer}>
+            <TextInput
+              label={'Stories: *'}
+              value={this.state.stories}
+              onChangeText={stories => this.setState({ stories })}
+              placeholder={'Number of stories'}
+              keyboardType="numeric"
+            />
+          </View>
+          <View style={styles.textInputContainer}>
+            <TextInput
+              label={'Events: *'}
+              value={this.state.events}
+              onChangeText={events => this.setState({ events })}
+              placeholder={'Number of events'}
+              keyboardType={'decimal-pad'}
+            />
+          </View>
+          <View style={[styles.textInputContainer, { alignItems: 'center', paddingTop: 10 }]}>
+            <Button
+              style={{ width: '90%', borderRadius: 20 }}
+              label={'Save character'}
+              onButtonPress={() => this._onSaveButtonTapped()}
+            />
+          </View>
+        </ScrollView>
       </View>
     )
   }
