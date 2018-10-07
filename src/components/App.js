@@ -38,7 +38,7 @@ export default class App extends Component {
               initial={'true'}
             />
             <Scene key={'characterDetail'} component={CharacterDetail} title={'Character Profile'} />
-            <Scene key={'characterAdd'} component={CharacterAdd} title={'Character Add'} />
+            <Scene key={'characterAdd'} component={CharacterAdd} title={'Character Add (Mock)'} />
           </Stack>
         </Router>
       </Provider>

@@ -35,7 +35,7 @@ export default class CharacterAdd extends React.Component {
 
   _renderImageInput() {
     const imageUri = this.state.image ? this.state.image.preview : null
-    const imageLabel = this.state.image ? 'Pulsa para escoger otra imagen' : 'Pulsa para elegir imagen *'
+    const imageLabel = this.state.image ? 'Click to change the image' : 'Click to select a image *'
     return (
       <View style={{ marginTop: 5, marginHorizontal: 5 }}>
         <TouchableOpacity style={styles.imageContainer} onPress={() => this._onImagePickerTapped()}>
