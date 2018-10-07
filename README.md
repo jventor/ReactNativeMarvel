@@ -1,4 +1,4 @@
-#React Native Marvel
+# React Native Marvel
 
 This project use [React Native](https://facebook.github.io/react-native/) to consume [Marvel API ](https://developer.marvel.com/) (for educational purposes)
 
@@ -23,8 +23,9 @@ This project use [React Native](https://facebook.github.io/react-native/) to con
  ```$npm install```
 
 ### Set up enviroment
-Create .env file and add:
-```API_KEY=your_apikey (get in developer.marvel.com)```
+Create **.env** file and add:
+
+```API_KEY=your_apikey``` (get it in [developer.marvel.com](https://developer.marvel.com/))
 
 ### Start nodejs server
 
